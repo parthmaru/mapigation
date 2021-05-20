@@ -1,3 +1,4 @@
+import { token } from "./token";
 mapboxgl.accessToken = token;
 
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
@@ -18,11 +19,21 @@ function setupMap(center) {
     container: "map",
     style: "mapbox://styles/mapbox/streets-v11",
     center: center,
-    zoom: 10,
+    // pitch: 60,
+    // bearing: -60,
+    zoom: 5,
   });
 
   var nav = new mapboxgl.NavigationControl();
   map.addControl(nav);
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+      },
+      trackUserLocation: true,
+    })
+  );
 
   var directions = new MapboxDirections({
     accessToken: mapboxgl.accessToken,
