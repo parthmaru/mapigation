@@ -1,5 +1,4 @@
-import { token } from "./token";
-mapboxgl.accessToken = token;
+mapboxgl.accessToken = process.env.TOKEN;
 
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
   enableHighAccuracy: true,
