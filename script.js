@@ -1,4 +1,4 @@
-mapboxgl.accessToken = process.env.TOKEN;
+mapboxgl.accessToken = config.MY_TOKEN;
 
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
   enableHighAccuracy: true,
